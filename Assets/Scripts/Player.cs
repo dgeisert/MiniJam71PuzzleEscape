@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         {
             reticle.localPosition = new Vector3(0, 0, hit.distance - 0.01f);
             Interactible focus = hit.transform.GetComponent<Interactible>();
-            if (focus != null && Input.GetKeyDown(KeyCode.E))
+            if (focus != null && Controls.Interact)
             {
                 focus.Interact();
             }

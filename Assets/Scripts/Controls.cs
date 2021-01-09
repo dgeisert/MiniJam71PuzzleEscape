@@ -16,14 +16,14 @@ public class Controls : MonoBehaviour
     {
         get
         {
-            return Input.GetKeyDown(KeyCode.Space);
+            return Input.GetKeyDown(KeyCode.E);
         }
     }
-    public static bool Fill
+    public static bool Interact
     {
         get
         {
-            return Input.GetKeyDown(KeyCode.E);
+            return Input.GetMouseButtonDown(0);
         }
     }
     public static bool Pause

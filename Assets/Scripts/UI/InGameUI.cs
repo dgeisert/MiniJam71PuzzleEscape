@@ -15,7 +15,7 @@ public class InGameUI : MonoBehaviour
 
     public void UpdateScore(float val)
     {
-        scoreText.text = "Score: " + val.ToString("#,#");
+        scoreText.text = "Score- " + Mathf.Floor(val / 60) + ":" + Mathf.Floor((val % 60));
     }
     public void EndGame(bool victory)
     {

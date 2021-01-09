@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class SpeechBubble : MonoBehaviour
 {
+    public static SpeechBubble Instance;
     bool typing = false;
     [SerializeField] private TextMeshProUGUI text, name;
     [SerializeField] private Image portrait;
     [SerializeField] private string data;
     Coroutine typingCoroutine;
+
+    void Awake()
+    {
+        Instance = this;
+        SetText(data);
+    }
 
     void Update()
     {
@@ -33,16 +40,27 @@ public class SpeechBubble : MonoBehaviour
         }
         else
         {
-            typingCoroutine = StartCoroutine(Type());
+            gameObject.SetActive(false);
         }
+    }
+
+    public void SetText(string setText)
+    {
+        gameObject.SetActive(true);
+        data = setText;
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+        typingCoroutine = StartCoroutine(Type());
     }
 
     IEnumerator Type()
     {
         text.text = "";
-        typing = true;
         for (int i = 0; i < data.Length; i++)
         {
+            typing = true;
             text.text += data[i];
             yield return null;
             yield return null;
