@@ -45,9 +45,11 @@ public class Game : MonoBehaviour
         {
             if (Controls.Shake)
             {
+                /*
                 Camera.main.transform.Shake(0.5f, 3);
                 Flytext.CreateFlytext(Vector3.up, score.ToString("#"), Color.white, 6, 1.5f, 1);
                 GameObject.FindObjectOfType<FillBar>().UpdateValue(100 * (Random.value - 0.6f));
+                */
             }
             if (Controls.Next)
             {
