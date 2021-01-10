@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : Interactible
 {
     [SerializeField] Vector3 open, closed;
     [SerializeField] bool Rotational = false;
@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     bool isOpen = false;
     Vector3 dir;
     AudioSource audioSource;
+    [SerializeField] bool free = false;
 
     private void Start()
     {
@@ -24,7 +25,15 @@ public class Door : MonoBehaviour
         }
         dir = (open - closed);
     }
-    
+
+    public override void Interact()
+    {
+        if (free)
+        {
+            Open();
+        }
+    }
+
     public void Open()
     {
         if (isOpen)

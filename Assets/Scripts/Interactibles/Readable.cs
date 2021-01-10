@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Readable : Interactible
 {
+    [TextArea]
     public string text = "Nothing interesting";
 
 

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] Transform reticle;
     Camera cam;
+    public int key = 0;
 
     void Awake()
     {

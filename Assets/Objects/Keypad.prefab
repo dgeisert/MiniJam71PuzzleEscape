@@ -796,7 +796,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: XXXXXX
+  m_text: XXXX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d15f46240d1af406ca5b51abb9f04dbd, type: 2}
   m_sharedMaterial: {fileID: 5224294873423597109, guid: d15f46240d1af406ca5b51abb9f04dbd,
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3740119219172477360}
-    characterCount: 6
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1499,6 +1499,7 @@ MonoBehaviour:
   wrong: {fileID: 8300000, guid: b2434dc56df494836b6304b646225f65, type: 3}
   click: {fileID: 8300000, guid: 47359b3131d3e4ec4a204ea7f501f2c7, type: 3}
   text: {fileID: 3740119219172477360}
+  checks: []
 --- !u!1 &3740119219397591626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,19 +2864,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
---- !u!114 &3740119220300791968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740119219105762513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f1071179c984ce7afa1d69c80bb704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0.5294118, g: 0.5254902, b: 0.48235297, a: 0}
 --- !u!1 &3740119220436236485
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,18 +3846,12 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: a6ce20b50db6b124dbbdecadee9b01dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f76da4dcc9dd24e88b40f5675afdac4f, type: 2}
+      objectReference: {fileID: 2100000, guid: 23e11a77d964d4ec5985fe037fd4acea, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ce20b50db6b124dbbdecadee9b01dd, type: 3}
 --- !u!4 &3740119219106124017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a6ce20b50db6b124dbbdecadee9b01dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 3740119219105729137}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3740119219105762513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: a6ce20b50db6b124dbbdecadee9b01dd,
     type: 3}
   m_PrefabInstance: {fileID: 3740119219105729137}
   m_PrefabAsset: {fileID: 0}
