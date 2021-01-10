@@ -12,32 +12,32 @@ public class Boid : MonoBehaviour
     {
         get
         {
-            return transform.position.x;
+            return transform.localPosition.x;
         }
     }
     public float y
     {
         get
         {
-            return transform.position.y;
+            return transform.localPosition.y;
         }
     }
     public float z
     {
         get
         {
-            return transform.position.z;
+            return transform.localPosition.z;
         }
     }
     public Vector3 xyz
     {
         get
         {
-            return transform.position;
+            return transform.localPosition;
         }
         set
         {
-            transform.position = value;
+            transform.localPosition = value;
         }
     }
     public Vector3 visualNearbyCenter;
@@ -51,8 +51,8 @@ public class Boid : MonoBehaviour
             dx = move.x;
             dy = move.y;
             dz = move.z;
-            transform.position += move * Time.deltaTime * speed;
-            transform.LookAt(transform.position - move);
+            transform.localPosition += move * Time.deltaTime * speed;
+            transform.LookAt(transform.localPosition - move);
         }
 
         //have frequent pauses in the movement instead of being smooth

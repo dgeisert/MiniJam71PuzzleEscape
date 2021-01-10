@@ -44,7 +44,7 @@ public class BoidFlock : MonoBehaviour
         {
             Boid b = Instantiate(
                 boid,
-                new Vector3(
+                transform.position + new Vector3(
                     (Random.value - 0.5f) * randomSpawnRange.x,
                     (Random.value - 0.5f) * randomSpawnRange.y,
                     (Random.value - 0.5f) * randomSpawnRange.z),

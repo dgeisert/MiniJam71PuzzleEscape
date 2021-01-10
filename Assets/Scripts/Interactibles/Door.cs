@@ -34,6 +34,11 @@ public class Door : Interactible
         }
     }
 
+    public void Close()
+    {
+        transform.localPosition = closed;
+    }
+
     public void Open()
     {
         if (isOpen)

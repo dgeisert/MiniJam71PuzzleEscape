@@ -9,7 +9,7 @@ public class ScoreScreen : MonoBehaviour
     public GameObject victoryDisplay;
     public GameObject defeatDisplay;
     public Canvas canvas;
-    
+
     private void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -19,7 +19,7 @@ public class ScoreScreen : MonoBehaviour
         gameObject.SetActive(true);
         victoryDisplay.gameObject.SetActive(victory);
         defeatDisplay.gameObject.SetActive(!victory);
-        scoreText.text = Game.Score.ToString("#,#");
+        scoreText.text = "Time: " + Mathf.Floor(Game.Score / 60) + ":" + ((Game.Score % 60) < 10 ? "0" : "") + Mathf.Floor((Game.Score % 60));
     }
 
     public void Restart()

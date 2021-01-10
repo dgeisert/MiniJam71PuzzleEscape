@@ -20,7 +20,7 @@ public class KeyReader : Interactible
     }
     public override void Interact()
     {
-        if (Player.Instance.key >= key)
+        if (Player.Instance.key[key])
         {
             audioSource.clip = correct;
             audioSource.Play();

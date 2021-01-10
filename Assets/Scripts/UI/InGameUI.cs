@@ -15,7 +15,7 @@ public class InGameUI : MonoBehaviour
 
     public void UpdateScore(float val)
     {
-        scoreText.text = "Score- " + Mathf.Floor(val / 60) + ":" + Mathf.Floor((val % 60));
+        scoreText.text = "Time: " + Mathf.Floor(val / 60) + ":" + ((val % 60) < 10 ? "0" : "") + Mathf.Floor((val % 60));
     }
     public void EndGame(bool victory)
     {

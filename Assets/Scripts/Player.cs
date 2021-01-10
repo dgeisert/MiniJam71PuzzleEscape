@@ -8,29 +8,42 @@ public class Player : MonoBehaviour
 
     [SerializeField] Transform reticle;
     Camera cam;
-    public int key = 0;
+    public bool[] key = new bool[] {false, false, false, false, false, false};
+    Color neutral;
+    Material mat;
 
     void Awake()
     {
         Instance = this;
         cam = GetComponentInChildren<Camera>();
+        mat = reticle.GetComponent<MeshRenderer>().material;
+        neutral = mat.GetColor("_Color");
     }
 
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 2))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 3))
         {
             reticle.localPosition = new Vector3(0, 0, hit.distance - 0.01f);
             Interactible focus = hit.transform.GetComponent<Interactible>();
-            if (focus != null && Controls.Interact)
+            if (focus != null)
             {
-                focus.Interact();
+                if (Controls.Interact)
+                {
+                    focus.Interact();
+                }
+                mat.SetColor("_Color", Color.green);
+            }
+            else
+            {
+                mat.SetColor("_Color", neutral);
             }
         }
         else
         {
-            reticle.localPosition = new Vector3(0, 0, 2);
+            reticle.localPosition = new Vector3(0, 0, 3);
+            mat.SetColor("_Color", neutral);
         }
     }
 
