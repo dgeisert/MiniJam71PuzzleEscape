@@ -3,6 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GameSparks.Api;
+using GameSparks.Api.Messages;
+using GameSparks.Api.Requests;
+using GameSparks.Api.Responses;
+using GameSparks.Core;
 
 public class Leaderboard_SampleScript : MonoBehaviour
 {
@@ -24,25 +29,28 @@ public class Leaderboard_SampleScript : MonoBehaviour
 
 	public void PostScoreBttn()
 	{
-		Debug.Log("Posting Score To Leaderboard...");
-		rankText.text = "Posting Score To Leaderboard...";
-		scoreText.text = "";
-		new GameSparks.Api.Requests.LogEventRequest()
-			.SetEventKey("SUBMIT_SCORE_" + leaderboardName)
-			.SetEventAttribute("SCORE", Game.Score.ToString())
-			.Send((response) =>
-			{
+		new DeviceAuthenticationRequest().Send((response) =>
+		{
+			Debug.Log("Posting Score To Leaderboard...");
+			rankText.text = "Posting Score To Leaderboard...";
+			scoreText.text = "";
+			new GameSparks.Api.Requests.LogEventRequest()
+				.SetEventKey("ESCAPE_TIME")
+				.SetEventAttribute("ESCAPE_TIME", (long) Game.Score)
+				.Send((response2) =>
+				{
 
-				if (!response.HasErrors)
-				{
-					Debug.Log("Score Posted Sucessfully...");
-				}
-				else
-				{
-					Debug.Log("Error Posting Score...");
-				}
-			});
-		GetLeaderboard();
+					if (!response2.HasErrors)
+					{
+						Debug.Log("Score Posted Sucessfully...");
+					}
+					else
+					{
+						Debug.Log("Error Posting Score...");
+					}
+				});
+			GetLeaderboard();
+		});
 	}
 
 	public void GetLeaderboard()
@@ -50,7 +58,7 @@ public class Leaderboard_SampleScript : MonoBehaviour
 		Debug.Log("Fetching Leaderboard Data...");
 
 		new GameSparks.Api.Requests.LeaderboardDataRequest()
-			.SetLeaderboardShortCode(leaderboardName + "_LEADERBOARD")
+			.SetLeaderboardShortCode(leaderboardName)
 			.SetEntryCount(25) // we need to parse this text input, since the entry count only takes long
 			.Send((response) =>
 			{
@@ -64,9 +72,9 @@ public class Leaderboard_SampleScript : MonoBehaviour
 					{
 						int rank = (int) entry.Rank; // we can get the rank directly
 						string playerName = entry.UserName;
-						string score = entry.JSONData["SCORE"].ToString(); // we need to get the key, in order to get the score
+						long score = long.Parse(entry.JSONData["ESCAPE_TIME"].ToString()); // we need to get the key, in order to get the score
 						rankText.text += rank + "\n"; // addd the score to the output text
-						scoreText.text += score + "\n";
+						scoreText.text += Mathf.Floor(score / 60) + ":" + ((score % 60) < 10 ? "0" : "") + Mathf.Floor((score % 60)) + "\n";
 					}
 				}
 				else
