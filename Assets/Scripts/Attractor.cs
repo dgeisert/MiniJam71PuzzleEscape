@@ -25,6 +25,7 @@ public class Attractor : MonoBehaviour
 
     IEnumerator Attract()
     {
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 1000; i++)
         {
             yield return null;

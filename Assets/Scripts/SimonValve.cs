@@ -14,7 +14,7 @@ public class SimonValve : Interactible
 
     public void Play()
     {
-        transform.Shake(0.5f, 5);
+        transform.Shake(0.5f, 1);
         audio.Play();
     }
 
