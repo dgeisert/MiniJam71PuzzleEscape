@@ -5,13 +5,6 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     public static Controls Instance;
-    public static bool Next
-    {
-        get
-        {
-            return Input.GetKeyDown(KeyCode.F);
-        }
-    }
     public static bool Shake
     {
         get

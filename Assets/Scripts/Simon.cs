@@ -44,6 +44,24 @@ public class Simon : MonoBehaviour
 
     }
 
+    public void Reset()
+    {
+        step = 0;
+        count = 0;
+        int x = Mathf.FloorToInt(Random.value * 4);
+        int y = Mathf.FloorToInt(Random.value * 4);
+        int z = Mathf.FloorToInt(Random.value * 4);
+        int w = Mathf.FloorToInt(Random.value * 4);
+        steps = new int[][]
+        {
+            new int[] { x },
+            new int[] { x, y },
+            new int[] { x, y, z },
+            new int[] { x, y, z, w }
+        };
+        Play();
+    }
+
     public void Played(int val)
     {
         if (complete)
@@ -71,10 +89,10 @@ public class Simon : MonoBehaviour
         {
             step = 0;
             count = 0;
-            int x = Mathf.FloorToInt(Random.value * 6);
-            int y = Mathf.FloorToInt(Random.value * 6);
-            int z = Mathf.FloorToInt(Random.value * 6);
-            int w = Mathf.FloorToInt(Random.value * 6);
+            int x = Mathf.FloorToInt(Random.value * 4);
+            int y = Mathf.FloorToInt(Random.value * 4);
+            int z = Mathf.FloorToInt(Random.value * 4);
+            int w = Mathf.FloorToInt(Random.value * 4);
             steps = new int[][]
             {
                 new int[] { x },
@@ -82,9 +100,8 @@ public class Simon : MonoBehaviour
                 new int[] { x, y, z },
                 new int[] { x, y, z, w }
             };
-            //source.clip = wrong;
-            //source.Play();
-            Play();
+            source.clip = wrong;
+            source.Play();
         }
     }
 

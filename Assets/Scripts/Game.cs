@@ -51,10 +51,6 @@ public class Game : MonoBehaviour
                 GameObject.FindObjectOfType<FillBar>().UpdateValue(100 * (Random.value - 0.6f));
                 */
             }
-            if (Controls.Next)
-            {
-                Victory();
-            }
             if (Controls.Pause)
             {
                 Pause();
